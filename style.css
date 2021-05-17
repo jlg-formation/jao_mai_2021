@@ -20,3 +20,8 @@ g.points circle {
   fill: black;
   stroke-width: 0;
 }
+
+line {
+  stroke: black;
+  stroke-width: 1;
+}
