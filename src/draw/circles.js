@@ -1,4 +1,4 @@
-export const n = 10;
+import { n } from "../misc.js";
 
 export default function drawCircles() {
   console.log("start draw circle");
