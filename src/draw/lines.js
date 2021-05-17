@@ -1,6 +1,4 @@
-import {multi} from '../misc.js';
-
-export function drawLines(sample) {
+export function drawLines({sample, multi}) {
   const g = document.querySelector('svg.multi-svg g.lines');
   if (!g) {
     throw new Error('svg not found.');

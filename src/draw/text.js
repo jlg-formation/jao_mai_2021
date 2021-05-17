@@ -1,4 +1,4 @@
-export function drawText(sample) {
+export function drawText({sample}) {
   if (sample > 20) {
     return;
   }

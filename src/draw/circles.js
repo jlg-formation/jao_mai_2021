@@ -1,5 +1,5 @@
-export default function drawCircles(sample) {
-  console.log('start draw circle');
+export default function drawCircles(state) {
+  const sample = state.sample;
   const g = document.querySelector('svg.multi-svg g.points');
   if (!g) {
     throw new Error('svg not found.');
