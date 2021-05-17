@@ -1,10 +1,9 @@
-import { n, multi } from "../misc.js";
+import {n, multi} from '../misc.js';
 
 export function drawLines() {
-  console.log("start draw numbers");
-  const g = document.querySelector("svg.multi-svg g.lines");
+  const g = document.querySelector('svg.multi-svg g.lines');
   if (!g) {
-    throw new Error("svg not found.");
+    throw new Error('svg not found.');
   }
 
   // big circle attributes.
@@ -21,11 +20,11 @@ export function drawLines() {
     const y1 = y + r * Math.cos(startAngleRad);
     const x2 = x + r * Math.sin(endAngleRad);
     const y2 = y + r * Math.cos(endAngleRad);
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("x1", x1);
-    line.setAttribute("y1", y1);
-    line.setAttribute("x2", x2);
-    line.setAttribute("y2", y2);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
     g.appendChild(line);
   }
 }
