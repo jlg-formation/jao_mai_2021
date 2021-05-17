@@ -1,6 +1,6 @@
-import {n, multi} from '../misc.js';
+import {multi} from '../misc.js';
 
-export function drawLines() {
+export function drawLines(sample) {
   const g = document.querySelector('svg.multi-svg g.lines');
   if (!g) {
     throw new Error('svg not found.');
@@ -11,8 +11,8 @@ export function drawLines() {
   const y = 0;
   const r = 100;
 
-  for (let i = 0; i < n; i++) {
-    const startAngleDegree = (i * 360) / n;
+  for (let i = 0; i < sample; i++) {
+    const startAngleDegree = (i * 360) / sample;
     const startAngleRad = (startAngleDegree * Math.PI) / 180;
     const endAngleDegree = startAngleDegree * multi;
     const endAngleRad = (endAngleDegree * Math.PI) / 180;

@@ -1,2 +1,2 @@
-export const n = 100;
+export const sampleInit = 50;
 export const multi = 2;

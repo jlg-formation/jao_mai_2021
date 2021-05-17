@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -24,4 +28,13 @@ g.points circle {
 line {
   stroke: black;
   stroke-width: 1;
+}
+
+.command {
+  width: 100%;
+  padding: 2em;
+}
+
+input {
+  width: 100%;
 }

@@ -1,6 +1,4 @@
-import {n} from '../misc.js';
-
-export default function drawCircles() {
+export default function drawCircles(sample) {
   console.log('start draw circle');
   const g = document.querySelector('svg.multi-svg g.points');
   if (!g) {
@@ -12,8 +10,8 @@ export default function drawCircles() {
   const y = 0;
   const r = 100;
 
-  for (let i = 0; i < n; i++) {
-    const angleDegree = (i * 360) / n;
+  for (let i = 0; i < sample; i++) {
+    const angleDegree = (i * 360) / sample;
     const angleRad = (angleDegree * Math.PI) / 180;
     const cx = x + r * Math.sin(angleRad);
     const cy = y + r * Math.cos(angleRad);
