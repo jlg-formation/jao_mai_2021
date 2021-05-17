@@ -1,10 +1,13 @@
 import drawCircles from './src/draw/circles.js';
 import {drawLines} from './src/draw/lines.js';
-import {drawNumbers} from './src/draw/text.js';
+import {drawText} from './src/draw/text.js';
+import {n} from './src/misc.js';
 
 const redraw = () => {
   drawCircles();
-  drawNumbers();
+  if (n <= 20) {
+    drawText();
+  }
   drawLines();
 };
 

@@ -1,6 +1,6 @@
 import {n} from '../misc.js';
 
-export function drawNumbers() {
+export function drawText() {
   const g = document.querySelector('svg.multi-svg g.numbers');
   if (!g) {
     throw new Error('svg not found.');
