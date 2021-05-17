@@ -9,3 +9,14 @@ svg {
   height: 40em;
   border: 0.1em solid black;
 }
+
+circle {
+  fill: transparent;
+  stroke-width: 1;
+  stroke: black;
+}
+
+g.points circle {
+  fill: black;
+  stroke-width: 0;
+}
