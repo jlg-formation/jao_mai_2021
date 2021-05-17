@@ -1,10 +1,10 @@
-import { n } from "../misc.js";
+import {n} from '../misc.js';
 
 export default function drawCircles() {
-  console.log("start draw circle");
-  const g = document.querySelector("svg.multi-svg g.points");
+  console.log('start draw circle');
+  const g = document.querySelector('svg.multi-svg g.points');
   if (!g) {
-    throw new Error("svg not found.");
+    throw new Error('svg not found.');
   }
 
   // big circle attributes.
@@ -18,12 +18,12 @@ export default function drawCircles() {
     const cx = x + r * Math.sin(angleRad);
     const cy = y + r * Math.cos(angleRad);
     const circle = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "circle"
+      'http://www.w3.org/2000/svg',
+      'circle',
     );
-    circle.setAttribute("cx", cx);
-    circle.setAttribute("cy", cy);
-    circle.setAttribute("r", 3);
+    circle.setAttribute('cx', cx);
+    circle.setAttribute('cy', cy);
+    circle.setAttribute('r', 3);
     g.appendChild(circle);
   }
 }

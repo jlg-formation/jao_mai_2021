@@ -13,5 +13,6 @@ module.exports = {
     'no-unused-vars': 1,
     eqeqeq: 2,
     'quote-props': 0,
+    indent: 0,
   },
 };
