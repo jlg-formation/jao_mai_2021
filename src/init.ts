@@ -9,6 +9,7 @@ function setListener(state: State, prop: keyof State) {
   const inputElt = document.querySelector(
     `input[name="${prop}"]`,
   ) as HTMLInputElement;
+  state[prop] = +inputElt.value;
   inputElt.addEventListener('input', () => {
     state[prop] = +inputElt.value;
   });

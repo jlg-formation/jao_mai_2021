@@ -5,5 +5,5 @@ export function drawLabel(state: State, prop: keyof State) {
   if (displayElt === null) {
     throw new Error('cannot find ' + `div.command div.${prop} span`);
   }
-  displayElt.innerHTML = '' + state.sample;
+  displayElt.innerHTML = '' + state[prop];
 }
