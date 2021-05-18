@@ -1,6 +1,5 @@
 import {sampleInit, multiInit} from './misc';
-import {init} from './init';
-import {redraw} from './draw/redraw';
+import {MultiplicationComponent} from './MultiplicationComponent';
 
 const state = {
   sample: sampleInit,
@@ -8,8 +7,9 @@ const state = {
 };
 
 const main = () => {
-  init(state);
-  redraw(state);
+  const component = new MultiplicationComponent(state);
+  component.init();
+  component.redraw();
 };
 
 main();
