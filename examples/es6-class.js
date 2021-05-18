@@ -18,3 +18,5 @@ var bob = new Person('Bob');
 
 console.log('bob: ', bob);
 bob.talk();
+
+console.log('class of bob: ', bob.constructor.name);
