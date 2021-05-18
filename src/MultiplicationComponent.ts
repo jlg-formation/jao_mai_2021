@@ -3,7 +3,36 @@ import {init} from './init';
 import {State} from './interfaces/State';
 
 export class MultiplicationComponent implements State {
+  private _multi = 0;
+  private _playing = false;
   private _sample = 0;
+
+  private timeout: number | undefined;
+
+  constructor(state: State) {
+    this.sample = state.sample;
+    this.multi = state.multi;
+  }
+
+  get multi(): number {
+    return this._multi;
+  }
+
+  set multi(val: number) {
+    this._multi = val;
+    this.redraw();
+  }
+
+  get playing(): boolean {
+    return this._playing;
+  }
+
+  set playing(val: boolean) {
+    this._playing = val;
+    this.toggleAnimation();
+    this.redraw();
+  }
+
   get sample(): number {
     return this._sample;
   }
@@ -14,26 +43,24 @@ export class MultiplicationComponent implements State {
     this.redraw();
   }
 
-  private _multi = 0;
-  get multi(): number {
-    return this._multi;
-  }
-
-  set multi(val: number) {
-    this._multi = val;
-    this.redraw();
-  }
-
-  constructor(state: State) {
-    this.sample = state.sample;
-    this.multi = state.multi;
-  }
-
   init() {
     init(this);
   }
 
   redraw() {
     redraw(this);
+  }
+
+  toggleAnimation() {
+    if (this.playing) {
+      this.timeout = setInterval(() => {
+        console.log('tick');
+        this.multi += 0.01;
+      }, 200) as unknown as number;
+      return;
+    }
+    if (this.timeout) {
+      clearInterval(this.timeout);
+    }
   }
 }

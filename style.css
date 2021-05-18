@@ -43,3 +43,19 @@ label {
 input {
   width: 100%;
 }
+
+div.content {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  font-size: 3em;
+  padding: 0.5em 1em;
+  margin: 1em;
+}
+
+button img {
+  height: 1em;
+}

@@ -7,3 +7,11 @@ export function drawLabel(state: State, prop: keyof State) {
   }
   displayElt.innerHTML = '' + state[prop];
 }
+
+export function drawButtonLabel(state: State) {
+  const elt = document.querySelector(`button.play`) as Element;
+  console.log('elt: ', elt);
+  elt.innerHTML = state.playing
+    ? '<img src="src/assets/pause.svg">'
+    : '<img src="src/assets/play.svg">';
+}
