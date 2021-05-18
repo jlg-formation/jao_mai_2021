@@ -1,6 +1,6 @@
-import {sampleInit, multiInit} from './misc.js';
-import {init} from './init.js';
-import {redraw} from './draw/redraw.js';
+import {sampleInit, multiInit} from './misc';
+import {init} from './init';
+import {redraw} from './draw/redraw';
 
 const state = {
   sample: sampleInit,

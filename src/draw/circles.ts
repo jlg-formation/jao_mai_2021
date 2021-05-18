@@ -1,4 +1,7 @@
-export default function drawCircles(state) {
+import {State} from '../interfaces/State';
+import {setAttributeNbr} from '../misc';
+
+export default function drawCircles(state: State) {
   const sample = state.sample;
   const g = document.querySelector('svg.multi-svg g.points');
   if (!g) {
@@ -19,9 +22,9 @@ export default function drawCircles(state) {
       'http://www.w3.org/2000/svg',
       'circle',
     );
-    circle.setAttribute('cx', cx);
-    circle.setAttribute('cy', cy);
-    circle.setAttribute('r', 3);
+    setAttributeNbr(circle, 'cx', cx);
+    setAttributeNbr(circle, 'cy', cy);
+    setAttributeNbr(circle, 'r', 3);
     g.appendChild(circle);
   }
 }

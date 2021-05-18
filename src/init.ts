@@ -1,17 +1,27 @@
-import {redraw} from './draw/redraw.js';
+import {State} from './interfaces/State';
+import {redraw} from './draw/redraw';
 
-export function init(state) {
+export function init(state: State) {
   setListener(state, 'sample');
   setListener(state, 'multi');
 }
 
-function setListener(state, prop) {
+function setListener(state: State, prop: keyof State) {
   const displayElt = document.querySelector(`div.command div.${prop} span`);
-  displayElt.innerHTML = state.sample;
+  if (displayElt === null) {
+    throw new Error('cannot find ' + `div.command div.${prop} span`);
+  }
+  displayElt.innerHTML = '' + state.sample;
   const inputElt = document.querySelector(`input[name="${prop}"]`);
+  if (inputElt === null) {
+    throw new Error('cannot find input ' + `input[name="${prop}"]`);
+  }
   inputElt.addEventListener('input', (evt) => {
-    state[prop] = evt.target.value;
-    displayElt.innerHTML = state[prop];
+    if (evt.target === null) {
+      throw new Error('no target found.');
+    }
+    state[prop] = +(evt.target as HTMLInputElement).value;
+    displayElt.innerHTML = state[prop] + '';
     redraw(state);
   });
 }

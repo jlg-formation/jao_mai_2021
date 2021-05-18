@@ -4,7 +4,10 @@ export function clean() {
   resetGroup('svg g.lines');
 }
 
-function resetGroup(selector) {
+function resetGroup(selector: string) {
   const g = document.querySelector(selector);
+  if (!g) {
+    throw new Error('cannot find selector');
+  }
   g.innerHTML = '';
 }

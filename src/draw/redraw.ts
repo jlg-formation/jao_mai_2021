@@ -1,9 +1,10 @@
-import drawCircles from './circles.js';
-import {drawText} from './text.js';
-import {drawLines} from './lines.js';
-import {clean} from './clean.js';
+import drawCircles from './circles';
+import {drawText} from './text';
+import {drawLines} from './lines';
+import {clean} from './clean';
+import {State} from '../interfaces/State';
 
-export const redraw = (state) => {
+export const redraw = (state: State) => {
   clean();
   drawCircles(state);
   drawText(state);

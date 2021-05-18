@@ -1,4 +1,6 @@
-export function drawLines({sample, multi}) {
+import {setAttributeNbr} from '../misc';
+import {State} from './../interfaces/State';
+export function drawLines({sample, multi}: State) {
   const g = document.querySelector('svg.multi-svg g.lines');
   if (!g) {
     throw new Error('svg not found.');
@@ -19,10 +21,10 @@ export function drawLines({sample, multi}) {
     const x2 = x + r * Math.sin(endAngleRad);
     const y2 = y + r * Math.cos(endAngleRad);
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y1);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y2);
+    setAttributeNbr(line, 'x1', x1);
+    setAttributeNbr(line, 'y1', y1);
+    setAttributeNbr(line, 'x2', x2);
+    setAttributeNbr(line, 'y2', y2);
     g.appendChild(line);
   }
 }

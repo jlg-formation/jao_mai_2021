@@ -1,4 +1,8 @@
-export function drawText({sample}) {
+import {State} from '../interfaces/State';
+import {setAttributeNbr} from '../misc';
+
+export function drawText(state: State) {
+  const sample = state.sample;
   if (sample > 20) {
     return;
   }
@@ -20,8 +24,8 @@ export function drawText({sample}) {
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     group.setAttribute('transform', `translate(${cx},${cy})`);
     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    text.setAttribute('x', 0);
-    text.setAttribute('y', 0);
+    setAttributeNbr(text, 'x', 0);
+    setAttributeNbr(text, 'y', 0);
     text.setAttribute('transform', 'scale(1,-1)');
     text.textContent = '' + i;
     group.appendChild(text);
