@@ -34,3 +34,9 @@ console.log('class of bob: ', bob.constructor.name);
 
 const charly = new Employee(1000, 'Charly');
 console.log('charly: ', charly);
+
+console.log('charly instanceof Employee: ', charly instanceof Employee);
+
+console.log('charly instanceof Person: ', charly instanceof Person);
+
+console.log('charly instanceof Object: ', charly instanceof Object);
