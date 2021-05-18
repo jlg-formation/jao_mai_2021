@@ -15,5 +15,7 @@ module.exports = {
     eqeqeq: 2,
     'quote-props': 0,
     indent: 0,
+    'no-var': 0,
+    'space-before-function-paren': 0,
   },
 };
