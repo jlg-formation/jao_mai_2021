@@ -1,3 +1,4 @@
+import {interval, Subscription} from 'rxjs';
 import {redraw} from './draw/redraw';
 import {init} from './init';
 import {State} from './interfaces/State';
@@ -10,7 +11,7 @@ export class MultiplicationComponent implements State {
   private _playing = false;
   private _sample = 0;
 
-  private timeout: number | undefined;
+  private subscription: Subscription | undefined;
 
   constructor(state: State) {
     this.sample = state.sample;
@@ -56,13 +57,27 @@ export class MultiplicationComponent implements State {
 
   async toggleAnimation() {
     console.log('this.playing: ', this.playing);
-    while (this.playing) {
-      console.log('tick');
-      this.multi += 0.01;
-      if (this.multi > MAX_MULTI) {
-        this.multi = 0;
+    if (!this.playing) {
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+        this.subscription = undefined;
       }
-      await sleep(1000);
+      return;
     }
+    this.subscription = interval(300).subscribe({
+      next: (n) => {
+        console.log('tick');
+        this.multi += 0.01;
+        if (this.multi > MAX_MULTI) {
+          this.multi = 0;
+        }
+      },
+      error: (err) => {
+        console.log('err: ', err);
+      },
+      complete: () => {
+        console.log('complete');
+      },
+    });
   }
 }
