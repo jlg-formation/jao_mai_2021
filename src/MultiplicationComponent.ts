@@ -1,6 +1,7 @@
 import {redraw} from './draw/redraw';
 import {init} from './init';
 import {State} from './interfaces/State';
+import {sleep} from './misc';
 
 const MAX_MULTI = 5;
 
@@ -53,23 +54,15 @@ export class MultiplicationComponent implements State {
     redraw(this);
   }
 
-  toggleAnimation() {
+  async toggleAnimation() {
     console.log('this.playing: ', this.playing);
-    if (this.playing) {
-      console.log('toggleAnimation: start');
-      this.timeout = setInterval(() => {
-        console.log('tick');
-        this.multi += 0.01;
-        if (this.multi > MAX_MULTI) {
-          this.multi = 0;
-        }
-      }, 150) as unknown as number;
-      console.log('this.timeout: ', this.timeout);
-      return;
-    }
-    console.log('toggleAnimation: stop');
-    if (this.timeout) {
-      clearInterval(this.timeout);
+    while (this.playing) {
+      console.log('tick');
+      this.multi += 0.01;
+      if (this.multi > MAX_MULTI) {
+        this.multi = 0;
+      }
+      await sleep(1000);
     }
   }
 }

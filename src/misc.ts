@@ -7,3 +7,11 @@ export const multiInit = 2;
 export function setAttributeNbr(elt: Element, name: string, value: number) {
   elt.setAttribute(name, '' + value);
 }
+
+export const sleep = (delayMs: number) => {
+  return new Promise<void>((resolve: () => void) => {
+    setTimeout(() => {
+      resolve();
+    }, delayMs);
+  });
+};
