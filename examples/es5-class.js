@@ -32,3 +32,6 @@ Person.bind(bob)('Bob');
 
 console.log('bob: ', bob);
 bob.talk();
+
+var charly = new Employee(1000, 'Charly');
+console.log('charly: ', charly);
