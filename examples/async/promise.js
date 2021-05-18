@@ -27,5 +27,8 @@ readdir('.')
   })
   .then((f4) => {
     console.log('f4: ', f4);
+  })
+  .catch((err) => {
+    console.log('err: ', err);
   });
 console.log('coucou');
