@@ -1,4 +1,5 @@
 import {clean} from '../draw/clean';
+import {$} from '../misc';
 
 const assert = (expr: boolean) => {
   if (!expr) {
@@ -12,7 +13,7 @@ describe('Test', function () {
   });
   it('test clean', function () {
     clean();
-    const g = document.querySelector('g.points') as HTMLElement;
+    const g = $('g.points') as HTMLElement;
     assert(g.childElementCount === 0);
   });
 });

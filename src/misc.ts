@@ -15,3 +15,5 @@ export const sleep = (delayMs: number) => {
     }, delayMs);
   });
 };
+
+export const $ = document.querySelector.bind(document);

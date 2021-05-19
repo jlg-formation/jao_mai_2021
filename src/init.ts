@@ -1,4 +1,5 @@
 import {State} from './interfaces/State';
+import {$} from './misc';
 
 export function init(state: State) {
   setListener(state, 'sample');
@@ -7,9 +8,7 @@ export function init(state: State) {
 }
 
 function setListener(state: State, prop: 'multi' | 'sample') {
-  const inputElt = document.querySelector(
-    `input[name="${prop}"]`,
-  ) as HTMLInputElement;
+  const inputElt = $(`input[name="${prop}"]`) as HTMLInputElement;
   state[prop] = +inputElt.value;
   inputElt.addEventListener('input', () => {
     state[prop] = +inputElt.value;
@@ -17,7 +16,7 @@ function setListener(state: State, prop: 'multi' | 'sample') {
 }
 
 function setPlay(state: State) {
-  const button = document.querySelector('button.play') as HTMLButtonElement;
+  const button = $('button.play') as HTMLButtonElement;
   button?.addEventListener('click', () => {
     state.playing = !state.playing;
   });

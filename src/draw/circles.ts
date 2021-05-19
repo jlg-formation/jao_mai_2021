@@ -1,9 +1,9 @@
 import {State} from '../interfaces/State';
-import {setAttributeNbr} from '../misc';
+import {setAttributeNbr, $} from '../misc';
 
 export default function drawCircles(state: State) {
   const sample = state.sample;
-  const g = document.querySelector('svg.multi-svg g.points');
+  const g = $('svg.multi-svg g.points');
   if (!g) {
     throw new Error('svg not found.');
   }

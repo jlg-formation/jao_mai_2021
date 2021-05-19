@@ -1,12 +1,12 @@
 import {State} from '../interfaces/State';
-import {setAttributeNbr} from '../misc';
+import {setAttributeNbr, $} from '../misc';
 
 export function drawText(state: State) {
   const sample = state.sample;
   if (sample > 20) {
     return;
   }
-  const g = document.querySelector('svg.multi-svg g.numbers');
+  const g = $('svg.multi-svg g.numbers');
   if (!g) {
     throw new Error('svg not found.');
   }

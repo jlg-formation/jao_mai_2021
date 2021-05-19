@@ -1,3 +1,5 @@
+import {$} from '../misc';
+
 export function clean() {
   resetGroup('svg g.points');
   resetGroup('svg g.numbers');
@@ -5,7 +7,7 @@ export function clean() {
 }
 
 function resetGroup(selector: string) {
-  const g = document.querySelector(selector);
+  const g = $(selector);
   if (!g) {
     throw new Error('cannot find selector');
   }

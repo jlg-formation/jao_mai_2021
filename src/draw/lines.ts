@@ -1,7 +1,7 @@
-import {setAttributeNbr} from '../misc';
+import {setAttributeNbr, $} from '../misc';
 import {State} from './../interfaces/State';
 export function drawLines({sample, multi}: State) {
-  const g = document.querySelector('svg.multi-svg g.lines');
+  const g = $('svg.multi-svg g.lines');
   if (!g) {
     throw new Error('svg not found.');
   }

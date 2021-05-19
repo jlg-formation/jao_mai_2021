@@ -1,7 +1,8 @@
 import {State} from '../interfaces/State';
+import {$} from '../misc';
 
 export function drawLabel(state: State, prop: 'multi' | 'sample') {
-  const displayElt = document.querySelector(`div.command div.${prop} span`);
+  const displayElt = $(`div.command div.${prop} span`);
   if (displayElt === null) {
     throw new Error('cannot find ' + `div.command div.${prop} span`);
   }
@@ -14,7 +15,7 @@ export function drawButtonLabel(state: State, previousPlaying: boolean) {
   if (previousPlaying === state.playing) {
     return;
   }
-  const elt = document.querySelector(`button.play`) as Element;
+  const elt = $(`button.play`) as Element;
   console.log('elt: ', elt);
   elt.innerHTML = state.playing
     ? '<img src="src/assets/pause.svg">'
