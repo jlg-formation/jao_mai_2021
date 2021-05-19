@@ -10,6 +10,7 @@ export function drawLabel(state: State, prop: 'multi' | 'sample') {
 }
 
 export function drawButtonLabel(state: State, previousPlaying: boolean) {
+  console.log('drawButtonLabel start', state.playing);
   if (previousPlaying === state.playing) {
     return;
   }
@@ -18,5 +19,4 @@ export function drawButtonLabel(state: State, previousPlaying: boolean) {
   elt.innerHTML = state.playing
     ? '<img src="src/assets/pause.svg">'
     : '<img src="src/assets/play.svg">';
-  previousPlaying = state.playing;
 }
