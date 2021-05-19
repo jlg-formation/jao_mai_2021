@@ -7,6 +7,9 @@ const assert = (expr: boolean) => {
 };
 
 describe('Test', function () {
+  before(() => {
+    console.log('before');
+  });
   it('test clean', function () {
     clean();
     const g = document.querySelector('g.points') as HTMLElement;

@@ -19,4 +19,10 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'browser-test'),
+    compress: true,
+    port: 9000,
+    open: true,
+  },
 };
