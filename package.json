@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:watch": "webpack serve -c webpack.test.config.js ",
+    "test": "webpack serve -c webpack.test.config.js ",
     "lint": "eslint .",
     "build": "webpack",
     "build:watch": "webpack -w",
