@@ -1,5 +1,5 @@
 import {interval, Subscription} from 'rxjs';
-import {take} from 'rxjs/operators';
+import {startWith, take, tap} from 'rxjs/operators';
 import {redraw} from './draw/redraw';
 import {init} from './init';
 import {State} from './interfaces/State';
@@ -67,7 +67,13 @@ export class MultiplicationComponent implements State {
       return;
     }
     this.subscription = interval(20)
-      .pipe(take(50))
+      .pipe(
+        startWith(0),
+        // take(50),
+        tap((n) => {
+          console.log('n: ', n);
+        }),
+      )
       .subscribe({
         next: (n) => {
           console.log('tick');
