@@ -9,10 +9,14 @@ export function drawLabel(state: State, prop: 'multi' | 'sample') {
   displayElt.innerHTML = '' + state[prop].toFixed(decimal);
 }
 
-export function drawButtonLabel(state: State) {
+export function drawButtonLabel(state: State, previousPlaying: boolean) {
+  if (previousPlaying === state.playing) {
+    return;
+  }
   const elt = document.querySelector(`button.play`) as Element;
   console.log('elt: ', elt);
   elt.innerHTML = state.playing
     ? '<img src="src/assets/pause.svg">'
     : '<img src="src/assets/play.svg">';
+  previousPlaying = state.playing;
 }

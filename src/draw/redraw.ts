@@ -5,11 +5,11 @@ import {clean} from './clean';
 import {State} from '../interfaces/State';
 import {drawButtonLabel, drawLabel} from './label';
 
-export const redraw = (state: State) => {
+export const redraw = (state: State, previousPlaying: boolean) => {
   clean();
   drawLabel(state, 'sample');
   drawLabel(state, 'multi');
-  drawButtonLabel(state);
+  drawButtonLabel(state, previousPlaying);
   drawCircles(state);
   drawText(state);
   drawLines(state);
