@@ -10,6 +10,6 @@ describe('Test', function () {
   it('test clean', function () {
     clean();
     const g = document.querySelector('g.points') as HTMLElement;
-    assert(g.childElementCount === 10);
+    assert(g.childElementCount === 0);
   });
 });
