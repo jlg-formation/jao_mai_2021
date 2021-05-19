@@ -63,3 +63,12 @@ g.toto = 45;
 g.tata.a = 6;
 console.log('g: ', g);
 console.log('f: ', f);
+
+// function surfaceClone(o) {
+//   const defaultOptions = {
+//     toto: 34,
+//     titi: 23,
+//   };
+//   Object.assign(options, o);
+//   const options = {...defaultOptions, ...o};
+// }

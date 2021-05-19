@@ -8,6 +8,9 @@ export function drawLabel(state: State, prop: 'multi' | 'sample') {
   }
   const decimal = prop === 'multi' ? 2 : 0;
   displayElt.innerHTML = '' + state[prop].toFixed(decimal);
+
+  const inputElt = $(`div.command input[name="${prop}"] `) as HTMLInputElement;
+  inputElt.value = '' + state[prop];
 }
 
 export function drawButtonLabel(state: State, previousPlaying: boolean) {
