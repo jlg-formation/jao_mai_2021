@@ -1,3 +1,4 @@
+/* eslint-disable no-invalid-this */
 'use strict';
 console.log('global this: ', this);
 
@@ -7,6 +8,7 @@ function main() {
 
 main();
 
+// eslint-disable-next-line new-cap
 new main();
 
 function x() {
