@@ -59,3 +59,8 @@ button {
 button img {
   height: 1em;
 }
+
+label.checkbox {
+  display: flex;
+  cursor: pointer;
+}

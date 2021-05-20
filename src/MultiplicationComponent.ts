@@ -4,12 +4,13 @@ import {redraw} from './draw/redraw';
 import {init} from './init';
 import {State} from './interfaces/State';
 
-const MAX_MULTI = 5;
+const MAX_MULTI = 100;
 
 export class MultiplicationComponent implements State {
   private _multi = 0;
   private _playing = false;
   private _sample = 0;
+  private _autostop = false;
   private subscription: Subscription | undefined;
 
   private previousPlaying = false;
@@ -48,6 +49,16 @@ export class MultiplicationComponent implements State {
     this.redraw();
   }
 
+  get autostop(): boolean {
+    return this._autostop;
+  }
+
+  set autostop(val: boolean) {
+    console.log('set autostop to ' + val);
+    this._autostop = val;
+    this.redraw();
+  }
+
   init() {
     init(this);
   }
@@ -66,30 +77,40 @@ export class MultiplicationComponent implements State {
       }
       return;
     }
-    this.subscription = interval(20)
-      .pipe(
-        startWith(0),
-        // take(50),
-        tap((n) => {
-          console.log('n: ', n);
-        }),
-      )
-      .subscribe({
-        next: (n) => {
-          console.log('tick');
-          if (this.multi > MAX_MULTI) {
-            this.multi = 0;
-            return;
-          }
-          this.multi += 0.01;
-        },
-        error: (err) => {
-          console.log('err: ', err);
-        },
-        complete: () => {
-          console.log('complete');
-          this.playing = false;
-        },
-      });
+
+    const anim1 = interval(20).pipe(
+      startWith(0),
+      // take(50),
+      tap((n) => {
+        console.log('n: ', n);
+      }),
+    );
+
+    const anim2 = interval(20).pipe(
+      startWith(0),
+      take(50),
+      tap((n) => {
+        console.log('n: ', n);
+      }),
+    );
+
+    const anim = this.autostop ? anim2 : anim1;
+    this.subscription = anim.subscribe({
+      next: (n) => {
+        console.log('tick');
+        if (this.multi > MAX_MULTI) {
+          this.multi = 0;
+          return;
+        }
+        this.multi += 0.01;
+      },
+      error: (err) => {
+        console.log('err: ', err);
+      },
+      complete: () => {
+        console.log('complete');
+        this.playing = false;
+      },
+    });
   }
 }

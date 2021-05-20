@@ -1,3 +1,6 @@
+import {MonoTypeOperatorFunction, Observable, of, OperatorFunction} from 'rxjs';
+import {mergeMap} from 'rxjs/operators';
+
 export const sampleInit = 50;
 export const multiInit = 2;
 

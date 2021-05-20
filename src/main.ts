@@ -1,11 +1,13 @@
 import {clone} from 'lodash';
+import {State} from './interfaces/State';
 import {sampleInit, multiInit} from './misc';
 import {MultiplicationComponent} from './MultiplicationComponent';
 
-const state = {
+const state: State = {
   sample: sampleInit,
   multi: multiInit,
   playing: false,
+  autostop: false,
 };
 
 const main = () => {

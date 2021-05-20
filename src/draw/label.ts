@@ -13,6 +13,12 @@ export function drawLabel(state: State, prop: 'multi' | 'sample') {
   inputElt.value = '' + state[prop];
 }
 
+export function drawCheckBoxLabel(state: State) {
+  console.log('drawCheckBoxLabel');
+  const elt = $(`input[name="autostop"]`) as HTMLInputElement;
+  elt.value = '' + state.autostop;
+}
+
 export function drawButtonLabel(state: State, previousPlaying: boolean) {
   console.log('drawButtonLabel start', state.playing);
   if (previousPlaying === state.playing) {

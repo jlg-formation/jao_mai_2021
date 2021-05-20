@@ -4,6 +4,7 @@ import {$} from './misc';
 export function init(state: State) {
   setListener(state, 'sample');
   setListener(state, 'multi');
+  setCheckBoxListener(state);
   setPlay(state);
 }
 
@@ -12,6 +13,15 @@ function setListener(state: State, prop: 'multi' | 'sample') {
   state[prop] = +inputElt.value;
   inputElt.addEventListener('input', () => {
     state[prop] = +inputElt.value;
+  });
+}
+
+function setCheckBoxListener(state: State) {
+  const inputElt = $(`input[name="autostop"]`) as HTMLInputElement;
+  state.autostop = inputElt.checked;
+  inputElt.addEventListener('input', () => {
+    console.log('change');
+    state.autostop = inputElt.checked;
   });
 }
 
